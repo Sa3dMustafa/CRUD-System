@@ -1,0 +1,209 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: system-ui;
+    --button-color:rgb(2, 97, 205);
+}
+
+body{
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+.crud{
+    width: 80%;
+    margin: auto;
+}
+
+.head{
+    text-transform: uppercase;
+    text-align: center;
+    margin: 15px 0;
+    position: relative;
+}
+
+input{
+    width: 100%;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    margin: 10px 0;
+    background-color: #eae6e6;
+    color: black;
+    padding: 5px;
+    transition: .6s;
+}
+input:focus{
+    background-color: #d0cfcf;
+    transform: scale(1.1);
+    transition: .6s;
+}
+
+input::placeholder{
+    color: black;
+}
+
+.price{
+    display: flex;
+    gap: 6px;
+}
+
+.price input{
+    width: 21%;
+}
+
+#total{
+    background-color: #1aafdb ;
+    padding: 5px 2px;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px 0;
+    display: flex;
+    place-items: center;
+    color: white;
+}
+
+#total::before{
+    content: "Total :";
+    color: white;
+}
+
+button{
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 16px;
+    background-color: #1aafdb;
+    color: white;
+    cursor: pointer;
+    transition: .6s;
+    border: none;
+    outline: none;
+}
+button:hover{
+    background-color: #1399c1 ;
+    transition: .6s;
+    letter-spacing: 1px;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.bntSearch{
+    margin: 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bntSearch button{
+    width: 40%;
+}
+
+#deleteall{
+    background-color: #d95656 !important;
+    border-radius: 20px;
+}
+
+table{
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+    overflow-x: auto;
+    max-width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+table tr ,
+table td{
+    padding: 5px;
+}
+
+table tr th{
+    text-transform: uppercase;
+}
+
+table tr td button{
+    border-radius: 6px;
+    height: 30px;
+    font-size: 13px;
+}
+
+/* toggle */
+.theme-checkbox {
+    --toggle-size: 16px;
+    appearance: none;
+    width: 60px !important;
+    height: 23px;
+    background: linear-gradient(to right, #efefef 50%, black 50%) no-repeat;
+    background-size: 205%;
+    background-position: 0;
+    transition: 0.4s;
+    border-radius: 99em;
+    position: absolute;
+    cursor: pointer;
+    font-size: var(--toggle-size);
+    top: 17px;
+    right: 17px;
+    transition: 0.7s;
+}
+
+.theme-checkbox::before {
+    content: "";
+    width: 13px;
+    height: 13px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: linear-gradient(to right, #dddddd 50%, #2a2a2a 50%) no-repeat;
+    background-size: 205%;
+    background-position: 100%;
+    border-radius: 50%;
+    transition: 0.7s;
+}
+
+.theme-checkbox:checked::before {
+    left: calc(100% - 20px);
+    background-position: 0;
+    transition: 0.7s;
+}
+
+.theme-checkbox:checked {
+    background-position: 100%;
+    transition: 0.7s;
+}
+/* End theme toggle styles */
+
+
+/* dark */
+
+.Dark{
+    background-color: #222 !important;
+    color: white !important;
+}
+
+.Dark input{
+    background-color: #111;
+    color: white;
+}
+
+.Dark input:focus{
+    background-color: black;
+}
+
+.Dark input::placeholder{
+    color: white;
+}
+
+.Dark button{
+    background-color: var(--button-color);
+}
+
+.Dark button:hover{
+    background-color: #0f30d6;
+    border-color: white;
+}
+
+.Dark #deleteall{
+    background-color: rgb(161, 33, 33) !important;
+}
