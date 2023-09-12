@@ -96,8 +96,8 @@ function showData() {
             <td>${dataProducts[i].discount}</td>
             <td>${dataProducts[i].total}</td>
             <td>${dataProducts[i].category}</td>
-            <td><button onclick="updatePro(${i})" id="update">Update</button></td>
-            <td><button onclick="deleteProduct(${i})" id="delete">Delete</button></td>
+            <td><button data-lang="Update" onclick="updatePro(${i})" id="update">Update</button></td>
+            <td><button data-lang="Delete" onclick="deleteProduct(${i})" id="delete">Delete</button></td>
         </tr>`;
     }
     document.getElementById("tbody").innerHTML = table;
@@ -106,8 +106,10 @@ function showData() {
     let btnDelete = document.getElementById("deleteall");
     if (dataProducts.length > 0) {
         btnDelete.innerHTML = `<button onclick="deleteAll()" id="deleteall">Delete All (${dataProducts.length})</button>`;
+        btnDelete.style.display = "flex";
     } else {
         btnDelete.innerHTML = "";
+        btnDelete.style.display = "none";
     }
 
     getTotal();
@@ -180,8 +182,8 @@ function searchData(value) {
                         <td>${dataProducts[i].discount}</td>
                         <td>${dataProducts[i].total}</td>
                         <td>${dataProducts[i].category}</td>
-                        <td><button onclick="updatePro(${i})" id="update">Update</button></td>
-                        <td><button onclick="deleteProduct(${i})" id="delete">Delete</button></td>
+                        <td><button data-lang="Update" onclick="updatePro(${i})" id="update">Update</button></td>
+                        <td><button data-lang="Delete" onclick="deleteProduct(${i})" id="delete">Delete</button></td>
                     </tr>`;
             }
         } else {
@@ -196,8 +198,8 @@ function searchData(value) {
                         <td>${dataProducts[i].discount}</td>
                         <td>${dataProducts[i].total}</td>
                         <td>${dataProducts[i].category}</td>
-                        <td><button onclick="updatePro(${i})" id="update">Update</button></td>
-                        <td><button onclick="deleteProduct(${i})" id="delete">Delete</button></td>
+                        <td><button data-lang="Update" onclick="updatePro(${i})" id="update">Update</button></td>
+                        <td><button data-lang="Delete" onclick="deleteProduct(${i})" id="delete">Delete</button></td>
                     </tr>`;
             }
         }
@@ -205,14 +207,79 @@ function searchData(value) {
     document.getElementById("tbody").innerHTML = table;
 }
 
-// dark mode
+// Change language
 
-// to set the theme preference in localStorage
+const translation = {
+    en: {
+        Product_Title: 'Title',
+        Price: 'Price',
+        Taxes: 'Taxes',
+        Ads: 'Ads',
+        Discount: 'Discount',
+        Count: 'Count',
+        Category: 'Category',
+        Create: 'Create',
+        Search: 'Search',
+        Search_By_Title: 'Search by Title',
+        Search_by_Category: 'Search by Category',
+        DeleteAll: 'DeleteAll',
+        Id: 'ID',
+        Total: 'Total',
+        Title_in_table: 'Title1',
+        Update: 'Update',
+        Delete: 'Delete',
+    },
+    ar: {
+        Product_Title: 'اسم المنتج',
+        Price: 'السعر',
+        Taxes: 'الأضافات',
+        Ads: 'أعلانات',
+        Discount: 'خصومات',
+        Count: 'العدد',
+        Category: 'الفئة',
+        Create: 'أنشاء',
+        Search: 'بحث عن المنتج',
+        Search_By_Title: 'بحث من خلال الأسم',
+        Search_by_Category: 'بحث من خلال الفئة',
+        DeleteAll: 'مسح جميع المنتجات',
+        Id: 'ID',
+        Total: 'الأجمالي',
+        Title_in_table: 'اسم المنتج',
+        Update: 'تعديل',
+        Delete: 'حذف',
+    },
+};
+
+const languageSelector = document.querySelector('select');
+
+languageSelector.addEventListener("change", (event) => {
+    changLanguage(event.target.value);
+    // Save language in local storage
+    localStorage.setItem('language', event.target.value);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    changLanguage(localStorage.getItem('language'));
+});
+
+const changLanguage = (language) => {
+    const elements = document.querySelectorAll('[data-lang]')
+    elements.forEach((element) => {
+        const translationKey = element.getAttribute('data-lang');
+        element.placeholder = translation[language][translationKey];
+        element.innerHTML = translation[language][translationKey];
+    });
+    document.dir = language === 'en' ? 'ltr' : 'rtl';
+}
+
+// Dark mode
+
+// Function to set the theme preference in localStorage
 function setTheme(theme) {
     localStorage.setItem("theme", theme);
 }
 
-// to get the theme from localStorage
+// Function to get the theme from localStorage
 function getTheme() {
     return localStorage.getItem("theme");
 }
@@ -222,14 +289,14 @@ function applyTheme() {
     const theme = getTheme();
     if (theme === "Dark") {
         document.body.classList.add("Dark");
-        total.style.backgroundColor = "#0f30d6";
+        total.style.backgroundColor = "#0261cd";
     } else {
         document.body.classList.remove("Dark");
         total.style.backgroundColor = "#1aafdb";
     }
 }
 
-// to apply the theme
+// Apply the theme initially
 applyTheme();
 
 // Listen for changes to the theme checkbox

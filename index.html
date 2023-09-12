@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="css/all.min.css">
     <title>Crud syetem</title>
 </head>
+
 <body class="Dark">
     <div class="crud">
         <div class="head">
@@ -14,49 +16,61 @@
             <p>poduct mangement system</p>
             <div class="themes">
                 <input type="checkbox" id="themeToggle" class="theme-checkbox" title="dark" />
+                <div class="lang">
+                    <h5>Select Language</h5>
+                    <select>
+                        <option value="en">English</option>
+                        <option value="ar">Arabic</option>
+                    </select>
+                </div>
             </div>
         </div>
         <div class="inputs">
-            <input type="text" placeholder="Title" id="title">
+            <input type="text" placeholder="Product Title" id="title" data-lang="Product_Title">
             <div class="price">
-                <input onkeyup="getTotal()" type="number" placeholder="Price" id="price">
-                <input onkeyup="getTotal()" type="number" placeholder="taxes" id="taxes">
-                <input onkeyup="getTotal()" type="number" placeholder="Ads" id="ads">
-                <input onkeyup="getTotal()" type="number" placeholder="Discount" id="discount">
+                <input onkeyup="getTotal()" type="number" placeholder="Price" id="price" data-lang="Price">
+                <input onkeyup="getTotal()" type="number" placeholder="Taxes" id="taxes" data-lang="Taxes">
+                <input onkeyup="getTotal()" type="number" placeholder="Ads" id="ads" data-lang="Ads">
+                <input onkeyup="getTotal()" type="number" placeholder="Discount" id="discount" data-lang="Discount">
                 <small id="total"></small>
             </div>
-            <input type="number" id="count" placeholder="Count">
-            <input type="text" id="category" placeholder="Category">
-            <button id="create">Create</button>
+            <input type="number" id="count" placeholder="Count" data-lang="Count">
+            <input type="text" id="category" placeholder="Category" data-lang="Category">
+            <button id="create" data-lang="Create">Create</button>
         </div>
         <div class="outputs">
             <div class="search">
-                <input onkeyup="searchData(this.value)" type="text" id="search" placeholder="Search">
+                <input onkeyup="searchData(this.value)" type="text" id="search" placeholder="Search" data-lang="Search">
                 <div class="bntSearch">
-                    <button onclick="getSearchMood (this.id)" id="searchTitle">Search By Title</button>
-                    <button onclick="getSearchMood (this.id)" id="searchCategory">Search By Category</button>
+                    <button onclick="getSearchMood (this.id)" id="searchTitle" data-lang="Search_By_Title">Search By
+                        Title</button>
+                    <button onclick="getSearchMood (this.id)" id="searchCategory" data-lang="Search_by_Category">Search
+                        By Category</button>
                 </div>
             </div>
-            <div id="deleteall"></div>
-            <table>
-                <tr>
-                    <th>id</th>
-                    <th>title</th>
-                    <th>price</th>
-                    <th>taxes</th>
-                    <th>ads</th>
-                    <th>discount</th>
-                    <th>total</th>
-                    <th>category</th>
-                    <th>update</th>
-                    <th>delete</th>
-                </tr>
-                <tbody id="tbody">
-                </tbody>
-            </table>
+            <div id="deleteall" data-lang="DeleteAll"></div>
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <th data-lang="Id">id</th>
+                        <th data-lang="Title_in_table">title</th>
+                        <th data-lang="Price">price</th>
+                        <th data-lang="Taxes">taxes</th>
+                        <th data-lang="Ads">ads</th>
+                        <th data-lang="Discount">discount</th>
+                        <th data-lang="Total">total</th>
+                        <th data-lang="Category">category</th>
+                        <th data-lang="Update">update</th>
+                        <th data-lang="Delete">delete</th>
+                    </tr>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
     <script src="js/main.js"></script>
 </body>
+
 </html>

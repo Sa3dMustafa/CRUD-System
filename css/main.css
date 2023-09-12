@@ -1,28 +1,48 @@
-*{
+/* Reset default margin, padding, font-family, and button color */
+* {
     padding: 0;
     margin: 0;
     font-family: system-ui;
-    --button-color:rgb(2, 97, 205);
+    --button-color: rgb(2, 97, 205);
 }
 
-body{
+/* Customize WebKit scroll bar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Style the scroll bar track background */
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+/* Style the scroll bar thumb (the moving part) */
+::-webkit-scrollbar-thumb {
+    background: var(--button-color);
+}
+
+/* Global styles for the body */
+body {
     background-color: #ffffff;
     color: rgb(0, 0, 0);
 }
 
-.crud{
+/* Styles for the main container */
+.crud {
     width: 80%;
     margin: auto;
 }
 
-.head{
+/* Styles for the headings */
+.head {
     text-transform: uppercase;
     text-align: center;
-    margin: 15px 0;
+    margin: 15px 0 25px 0;
     position: relative;
 }
 
-input{
+/* Styles for input fields */
+input {
     width: 100%;
     height: 30px;
     outline: none;
@@ -34,42 +54,48 @@ input{
     padding: 5px;
     transition: .6s;
 }
-input:focus{
+
+/* Styles for input fields when focused */
+input:focus {
     background-color: #d0cfcf;
     transform: scale(1.1);
     transition: .6s;
 }
 
-input::placeholder{
+/* Placeholder text color for input fields */
+input::placeholder {
     color: black;
 }
 
-.price{
+/* Styles for price input fields */
+.price {
     display: flex;
     gap: 6px;
 }
 
-.price input{
+.price input {
     width: 21%;
 }
 
-#total{
-    background-color: #1aafdb ;
+/* Styles for the "Total" element */
+#total {
+    background-color: #1aafdb;
     padding: 5px 2px;
     border-radius: 5px;
-    padding: 5px;
     margin: 10px 0;
     display: flex;
     place-items: center;
     color: white;
 }
 
-#total::before{
+/* Styles for the "Total" label */
+#total::before {
     content: "Total :";
     color: white;
 }
 
-button{
+/* Styles for buttons */
+button {
     width: 100%;
     height: 40px;
     border-radius: 20px;
@@ -81,55 +107,97 @@ button{
     border: none;
     outline: none;
 }
-button:hover{
-    background-color: #1399c1 ;
+
+/* Hover effect for buttons */
+button:hover {
+    background-color: #1399c1;
     transition: .6s;
     letter-spacing: 1px;
     border: 2px solid rgb(0, 0, 0);
 }
 
-.bntSearch{
+/* Styles for the search button container */
+.bntSearch {
     margin: 10px 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.bntSearch button{
-    width: 40%;
+/* Styles for individual search buttons */
+.bntSearch button {
+    width: 45%;
 }
 
-#deleteall{
+/* Styles for the "Delete All" button */
+#deleteall {
     background-color: #d95656 !important;
+    color: white;
     border-radius: 20px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
-table{
-    width: 100%;
-    text-align: center;
-    margin: 10px 0;
+/* Styles for the table container */
+.table-responsive {
     overflow-x: auto;
+}
+
+/* Styles for the table */
+table {
+    width: 100%;
     max-width: 100%;
     border-collapse: collapse;
-    white-space: nowrap;
+    text-align: center;
+    margin: 10px 0;
 }
 
-table tr ,
-table td{
+/* Styles for table rows and cells */
+table tr,
+table td {
     padding: 5px;
+    cursor: pointer;
 }
 
-table tr th{
+/* Hover effect for table rows */
+table tr:hover {
+    background-color: #dedddd;
+}
+
+/* Styles for table headers */
+table tr th {
     text-transform: uppercase;
 }
 
-table tr td button{
+/* Styles for buttons within table cells */
+table tr td button {
     border-radius: 6px;
     height: 30px;
     font-size: 13px;
 }
 
-/* toggle */
+/* Styles for the language selector */
+.lang {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+    position: absolute;
+    top: 6px;
+    left: 0;
+}
+
+/* Styles for the language selector dropdown */
+.lang select {
+    width: 50%;
+    border-radius: 8px;
+}
+
+/* Theme toggle styles for dark mode */
 .theme-checkbox {
     --toggle-size: 16px;
     appearance: none;
@@ -148,6 +216,7 @@ table tr td button{
     transition: 0.7s;
 }
 
+/* Styles for the toggle thumb */
 .theme-checkbox::before {
     content: "";
     width: 13px;
@@ -162,48 +231,86 @@ table tr td button{
     transition: 0.7s;
 }
 
+/* Styles for the toggle thumb when checked */
 .theme-checkbox:checked::before {
     left: calc(100% - 20px);
     background-position: 0;
     transition: 0.7s;
 }
 
+/* Styles for the checked state of the toggle */
 .theme-checkbox:checked {
     background-position: 100%;
     transition: 0.7s;
 }
-/* End theme toggle styles */
 
-
-/* dark */
-
-.Dark{
+/* Dark mode styles */
+.Dark {
     background-color: #222 !important;
     color: white !important;
 }
 
-.Dark input{
+.Dark input {
     background-color: #111;
     color: white;
 }
 
-.Dark input:focus{
+.Dark input:focus {
     background-color: black;
 }
 
-.Dark input::placeholder{
+.Dark input::placeholder {
     color: white;
 }
 
-.Dark button{
+.Dark button {
     background-color: var(--button-color);
 }
 
-.Dark button:hover{
+.Dark button:hover {
     background-color: #0f30d6;
     border-color: white;
 }
 
-.Dark #deleteall{
+.Dark #deleteall {
     background-color: rgb(161, 33, 33) !important;
+}
+
+.Dark table tr:hover {
+    background-color: black;
+}
+
+/* Media query for smaller screens */
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+
+    /* Adjust the position of the language selector */
+    .lang {
+        top: 59px;
+    }
+
+    /* Hide the "Total" label */
+    .lang h5 {
+        display: none;
+    }
+
+    /* Make the language selector full width */
+    .lang select {
+        width: 100%;
+    }
+
+    /* Adjust the styles of search buttons */
+    .bntSearch button {
+        font-size: 12px;
+        width: 42%;
+    }
+
+    /* Ensure table responsiveness */
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    /* Adjust the position of the theme toggle */
+    .theme-checkbox {
+        top: 50px;
+    }
 }
