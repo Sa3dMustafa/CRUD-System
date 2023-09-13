@@ -272,6 +272,19 @@ const changLanguage = (language) => {
     document.dir = language === 'en' ? 'ltr' : 'rtl';
 }
 
+window.onload =() => {
+    const language = localStorage.getItem('language');
+    changLanguage(language);
+    languageSelector.value= language;
+
+    const savedTheme = getTheme();
+    // Check the toggle if the saved theme is 'Dark'
+    if (savedTheme === "Dark") {
+        themeToggle.checked = true;
+    } else {
+        themeToggle.checked = false;
+    }
+}
 // Dark mode
 
 // Function to set the theme preference in localStorage
