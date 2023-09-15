@@ -247,12 +247,12 @@ table tr td button {
 
 /* Dark mode styles */
 .Dark {
-    background-color: #222 !important;
+    background-color: #111 !important;
     color: white !important;
 }
 
 .Dark input {
-    background-color: #111;
+    background-color: #222;
     color: white;
 }
 
@@ -312,6 +312,7 @@ table tr td button {
 
     /* Adjust the position of the theme toggle */
     .theme-checkbox {
-        top: 48px;
+        top: 49px;
+        right: -9px;
     }
 }

@@ -105,7 +105,7 @@ function showData() {
     // Create a "Delete All" button when there are products
     let btnDelete = document.getElementById("deleteall");
     if (dataProducts.length > 0) {
-        btnDelete.innerHTML = `<button onclick="deleteAll()" id="deleteall">Delete All (${dataProducts.length})</button>`;
+        btnDelete.innerHTML = `<button onclick="deleteAll()" id="deleteall" data-lang="DeleteAll">Delete All (${dataProducts.length})</button>`;
         btnDelete.style.display = "flex";
     } else {
         btnDelete.innerHTML = "";
@@ -267,7 +267,7 @@ const changLanguage = (language) => {
     elements.forEach((element) => {
         const translationKey = element.getAttribute('data-lang');
         element.placeholder = translation[language][translationKey];
-        element.innerHTML = translation[language][translationKey];
+        element.textContent = translation[language][translationKey];
     });
     document.dir = language === 'en' ? 'ltr' : 'rtl';
 }
